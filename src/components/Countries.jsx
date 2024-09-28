@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import Country from "./Country";
 
-
 const Countries = () => {
   // useState react memory ===========================================
   const [countries, setCountries] = useState([]); //countries show
   const [country, setCountry] = useState({}); // Country details
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal 
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal
   const [searchTerm, setSearchTerm] = useState(""); // Search state
   const [isSearchEmpty, setIsSearchEmpty] = useState(false); // To track empty search results
 
@@ -86,7 +85,7 @@ const Countries = () => {
   return (
     <>
       {/* Search Input */}
-      
+
       <div className="mb-4 flex justify-between items-center gap-10 p-5 bg-teal-800">
         <h1 className="text-3xl text-white font-bold">Country List</h1>
         <input
@@ -118,54 +117,60 @@ const Countries = () => {
                 ⨉
               </button>
             </div>
-            <div>
-              <img
-                className="h-36 rounded-lg my-4"
-                src={country?.flags?.svg}
-                alt={country?.flags?.svg}
-              />
-              <p>
-                <strong>Capital:</strong> {country?.capital}
-              </p>
-              <p>
-                <strong>Region:</strong> {country?.region}
-              </p>
-              <p>
-                <strong>Subregion:</strong> {country?.subregion}
-              </p>
-              <p>
-                <strong>Timezones:</strong> {country?.timezones}
-              </p>
-              <p>
-                <strong>Population:</strong> {country?.population}
-              </p>
-              <p>
-                <strong>Start Of Week:</strong> {country?.startOfWeek}
-              </p>
-              <ul>
-                {country?.currencies?.length > 0 ? (
-                  country?.currencies?.map(({ code, name, symbol }) => (
-                    <li key={code}>
-                      <strong>Currencies: </strong>
-                      {name} ({symbol}) - {code}
-                    </li>
-                  ))
-                ) : (
-                  <p>Currencies not available</p>
-                )}
-              </ul>
-              <ul>
-                {country?.languages?.length > 0 ? (
-                  country?.languages?.map(({ code, name }) => (
-                    <li key={code}>
-                      <strong>Languages: </strong>
-                      {name}
-                    </li>
-                  ))
-                ) : (
-                  <p>Languages not available</p>
-                )}
-              </ul>
+            {/* =============================================== */}
+            <div className="flex items-center justify-between gap-10 p-5 ">
+              <div>
+                <img
+                  className="h-48 rounded-lg my-4"
+                  src={country?.flags?.svg}
+                  alt={country?.flags?.svg}
+                />
+              </div>
+
+              <div>
+                <p>
+                  <strong>Capital:</strong> {country?.capital}
+                </p>
+                <p>
+                  <strong>Region:</strong> {country?.region}
+                </p>
+                <p>
+                  <strong>Subregion:</strong> {country?.subregion}
+                </p>
+                <p>
+                  <strong>Timezones:</strong> {country?.timezones}
+                </p>
+                <p>
+                  <strong>Population:</strong> {country?.population}
+                </p>
+                <p>
+                  <strong>Start Of Week:</strong> {country?.startOfWeek}
+                </p>
+                <ul>
+                  {country?.currencies?.length > 0 ? (
+                    country?.currencies?.map(({ code, name, symbol }) => (
+                      <li key={code}>
+                        <strong>Currencies: </strong>
+                        {name} ({symbol}) - {code}
+                      </li>
+                    ))
+                  ) : (
+                    <p>Currencies not available</p>
+                  )}
+                </ul>
+                <ul>
+                  {country?.languages?.length > 0 ? (
+                    country?.languages?.map(({ code, name }) => (
+                      <li key={code}>
+                        <strong>Languages: </strong>
+                        {name}
+                      </li>
+                    ))
+                  ) : (
+                    <p>Languages not available</p>
+                  )}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
