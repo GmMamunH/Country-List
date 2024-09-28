@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import Country from "./Country";
 
+
 const Countries = () => {
-  const [countries, setCountries] = useState([]);
+  // useState react memory ===========================================
+  const [countries, setCountries] = useState([]); //countries show
+  const [country, setCountry] = useState({}); // Country details
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal 
   const [searchTerm, setSearchTerm] = useState(""); // Search state
   const [isSearchEmpty, setIsSearchEmpty] = useState(false); // To track empty search results
 
@@ -32,8 +36,6 @@ const Countries = () => {
   }, []);
 
   // Country details button handler ============================
-  const [country, setCountry] = useState({});
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const countryDetailsHandler = (countryDetails) => {
     const countryCurrencies = Object.entries(
@@ -76,7 +78,7 @@ const Countries = () => {
     country?.name?.common?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Track if search results are empty
+  // Track if search results are empty ===================
   useEffect(() => {
     setIsSearchEmpty(filteredCountries.length === 0);
   }, [filteredCountries]);
@@ -84,8 +86,9 @@ const Countries = () => {
   return (
     <>
       {/* Search Input */}
-      <div className="mb-4 flex justify-between items-center gap-10">
-        <h1 className="text-3xl text-green-800 font-bold">Country List</h1>
+      
+      <div className="mb-4 flex justify-between items-center gap-10 p-5 bg-teal-800">
+        <h1 className="text-3xl text-white font-bold">Country List</h1>
         <input
           type="text"
           placeholder="Search by country name..."
@@ -172,7 +175,7 @@ const Countries = () => {
       {isSearchEmpty ? (
         <p className="text-red-500 text-xl font-bold">Country not found</p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 px-5">
           {filteredCountries.map((country) => (
             <Country
               key={country.ccn3}

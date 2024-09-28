@@ -15,22 +15,24 @@ const Country = ({ countryInfo, countryDetailsHandler }) => {
             {countryInfo?.name?.common}
           </h1>
           {/* ======================================== */}
-          <div className="text-start">
-            <small className="line-clamp-1 text-center">
+          <div className="px-4">
+            <small className="line-clamp-1">
               {" "}
               <strong>Capital: </strong>
               {countryInfo?.capital}
             </small>
-            <small className="line-clamp-1 text-center">
+            <small className="line-clamp-1">
               {" "}
               <strong> Region: </strong>
               {countryInfo?.region}
             </small>
-            <small className="line-clamp-1 text-center">
+            <small className="line-clamp-1">
               {" "}
               <strong> Population: </strong>
               {countryInfo?.population}
             </small>
+
+           
           </div>
           {/* =========================== */}
           <div className="p-2 flex items-center justify-center">

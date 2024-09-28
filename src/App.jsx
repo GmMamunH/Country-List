@@ -1,11 +1,13 @@
 import Countries from "./components/Countries"
+import Footer from "./components/Footer";
 
 function App() {
  
   return (
     <>
-      <div className="max-w-screen-lg mx-auto p-2">
+      <div>
         <Countries />
+        <Footer/>
       </div>
     </>
   );
